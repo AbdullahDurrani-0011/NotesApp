@@ -9,31 +9,31 @@
 </head>
 
 <body>
+
     <header class="container">
         <h1 class="NotesApp">Notes App</h1>
         <p class="AppNotes">Take Notes and never forget</p>
     </header>
+    <div class="Home-Header">
+        <!-- <a href="./Create.html" id="active">Home</a> -->
+        <a href="./Home.html">
+            <p class="home">Home</p>
+        </a>
+    </div>
 
-    <!-- Navbar -->
-    <div class="Main-container">
-        <form class="create-Form">
-            <input type="text" id="note-title" placeholder="Filter Notes" required>
+    <div class="form-container">
+        <form id="myFunction" class="Form">
+            <input type="text" id="note-title" placeholder="Type a note title" required>
 
-            <select class="options">
-                <option value="">Sort by</option>
-                <option value="">Sort by last edited</option>
-                <option value="">Sort by alphabetically</option>
-                <option value="">Sort by recently created</option>
-            </select>
+            <textarea id="note-body" value="Any text" placeholder="Type the note body" rows="10" required></textarea>
+
+            <button onclick="submit" type="submit()" class="blue-btn">Add Note</button>
         </form>
     </div>
 
-    <p class="Span-Tag">No notes to show</p>
-
-    <!-- Create Note Button -->
-    <a href="./Home.html"><button class="Create-btn">Create Note</button></a>
 
 
+    <script src="./script.js"></script>
 </body>
 
 </html>

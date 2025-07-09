@@ -109,6 +109,7 @@
     font-weight: 600px;
     font-family: sans-serif;
     font-size: medium;
+    cursor: pointer;
 
 }
 
@@ -155,6 +156,20 @@
     margin-left: 45%;
     padding-top: 30px;
     font-size:  20px;
+}
+
+/* Text Area Css */
+.Text{
+    width: 600px;
+    padding: 60px;
+    resize: none;
+    box-sizing: border-box;
+    border-radius: 8px;
+    outline: none;
+    margin-left: 28%;
+    border: 1px solid lightgray; 
+    cursor: pointer; 
+    margin-top: 40px;
 }
 
 /* Create Button Css */
