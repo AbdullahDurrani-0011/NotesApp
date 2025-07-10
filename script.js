@@ -1,29 +1,21 @@
-const notes = [];
-let myFuntion = document
-  .getElementById("myFunction")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
+const form = document.getElementById("myFunction");
+const titleInput = document.getElementById("note-title");
+const bodyInput = document.getElementById("note-body");
+const addNote = document.getElementById("addBtn");
 
-    let noteTitle = document.getElementById("note-title").value;
+const node = document.getElementById("node-container");
 
-    let noteBody = document.getElementById("note-body").value;
-
-    notes.push({ title: noteTitle, body: noteBody });
-    localStorage.setItem("notes", JSON.stringify(notes));
-  });
-
-console.log(document.getElementById("myFunction"));
-
-// let getNotes = () => {
-//   // get notes from local storage
-//   const storedNotes = localStorage.getItem("notes");
-//   console.log(storedNotes);
-//   const outputContainer = document.getElementById("output");
-
-//   outputContainer.innerHTML = storedNotes;
-// };
-
-document.getElementsById("btn").addEventListener("click", (e) => {
+addNote.addEventListener("click", function (e) {
   e.preventDefault();
-  alert("clicked");
+  const title = document.getElementById("note-title").value;
+  const body = document.getElementById("note-body").value;
+  const id = Math.round(Math.random() * 1000);
+  const notes = {
+    id: id,
+    title: title,
+    body: body,
+  };
+  console.log(notes);
+  // node.innerHTML= notes.title;
 });
+

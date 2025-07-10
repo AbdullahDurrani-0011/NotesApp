@@ -159,7 +159,7 @@
 }
 
 /* Text Area Css */
-.Text{
+#node-container{
     width: 600px;
     padding: 60px;
     resize: none;
