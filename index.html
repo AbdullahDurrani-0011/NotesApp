@@ -6,22 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home NotesApp</title>
     <link rel="stylesheet" href="./Style.css">
-    <script>
-        let getNotes = (e) => {
-            e.preventDefault();
-            alert("hello")
-            // get notes from local storage
-            const storedNotes = localStorage.getItem("notes");
-            console.log(storedNotes);
-            const outputContainer = document.getElementById("output");
-
-            outputContainer.innerHTML = storedNotes;
-        };
-
-    </script>
 </head>
 
-<body id="body">
+<body>
     <header class="container">
         <h1 class="NotesApp">Notes App</h1>
         <p class="AppNotes">Take Notes and never forget</p>
@@ -40,35 +27,22 @@
             </select>
         </form>
     </div>
-    <!-- 
-    <div id="node-container">
-        <div>
-            Abdullah
-        </div>
-    </div> -->
-
-    <div id="node-container">
-        <p id="p1">This is a paragraph.</p>
-        <p id="p2">This is another paragraph.</p>
-    </div>
 
 
-    <!-- <div class="Text">
-        <div id="Hyee"></div>
-    </div> -->
+
+    <div id="node-container"></div>
 
 
     <!-- <textarea class="Text" id="Hellow-Text" value="Any text" placeholder="" rows="5" required></textarea> -->
 
     <!-- Create Note Button -->
-    <a href="./Create.html"><button onclick="newnote" class="Create-btn">Create Note</button></a>
+    <a href="./Create.html"><button class="Create-btn">Create Note</button></a>
     <!-- <button id="btn" class="Create-btn" onclick="getNotes">fetch</button> -->
 
 
 
 
     <script src="./script.js"></script>
-
 </body>
 
 </html>
