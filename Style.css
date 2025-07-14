@@ -155,7 +155,7 @@
     height: 50%;
     margin-left: 45%;
     padding-top: 30px;
-    font-size:  20px;
+    font-size: 20px;
 }
 
 /* Text Area Css */
@@ -172,14 +172,82 @@
     margin-top: 40px;
 } */
 
+
+
+
+
+#notes-list {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.note {
+    background-color: #f0f8ff;
+    border: 1px solid #ccc;
+
+    padding: 15px;
+    margin-bottom: 15px;
+    /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.note h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.note p {
+    margin-bottom: 0;
+    color: #555;
+}
+
+.no-notes {
+    text-align: center;
+    font-size: 18px;
+    color: #121212;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+.Update {
+    float: right;
+    /* display: flex
+; */
+    margin-left: 500px;
+    margin-top: -145px;
+}
+
+
+.anchor{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Create Button Css */
 
-.Create-btn{
-   width: 110px;
-   padding-top: 15px;
-   padding-bottom: 15px;
-   padding-left: 2px;
-   padding-right: 2px;
+.Create-btn {
+    width: 110px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 2px;
+    padding-right: 2px;
     background-color: #46789D;
     color: white;
     margin-left: 28%;
