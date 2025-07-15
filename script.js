@@ -1,17 +1,15 @@
-// document.addEventListener("DOMContentLoaded", function () {
+
 const form = document.getElementById("myFunction");
 let titleInput = document.getElementById("note-title");
 let bodyInput = document.getElementById("note-body");
 const addNote = document.getElementById("addBtn");
 const con = document.querySelector(".con");
 
-// let emptyDiv = document.getElementById("node-container");
 
-// const addBtn = document.getElementById("addBtn");
 addNote?.addEventListener("click", function (e) {
   e.preventDefault();
 
-  // Parse any JSON previously stored in allEntries
+ 
   var existingEntries = JSON.parse(localStorage.getItem("notes"));
   if (existingEntries == null) existingEntries = [];
 
@@ -27,28 +25,28 @@ addNote?.addEventListener("click", function (e) {
     title: title,
     body: body,
   };
-  // localStorage.setItem("note", JSON.stringify(note));
-
-  // Save allEntries back to local storage
   existingEntries.push(note);
   localStorage.setItem("notes", JSON.stringify(existingEntries));
   window.location.href = `index.html`;
-
-  // for (let i = 0; i < notes.length; i++) {
-  //   console.log(notes[i]);
-  // }
   titleInput.value = "";
   bodyInput.value = "";
 
-  // document.getElementById("myFunction").innerHTML =
-  //   note.id + ", " + note.title + ", " + note.body;
-
-  // console.log(notes);
 });
-// });
-// node.innerHTML= notes.title;
+
+
+const handleNoteClick = (note) => {
+  // console.log(note, "note---");
+  // return;
+  window.location.href =  `Create.html?id=${note.id}`;
+ 
+};
+
 
 window.addEventListener("DOMContentLoaded", () => {
+
+  const params = new URLSearchParams(window.location.search);
+  const noteId = params.get("id");
+
   const container = document.getElementById("notes-list");
   const notes = JSON.parse(localStorage.getItem("notes")) || [];
 
@@ -68,14 +66,22 @@ window.addEventListener("DOMContentLoaded", () => {
         <p>${note.body}</p>
       `;
       an.appendChild(noteDiv);
+      noteDiv.addEventListener("click", () => handleNoteClick(note));
       container.appendChild(an);
-
     });
   }
-  con?.addEventListener("click", function (e) {
-    e.preventDefault();
-    document.write("Hellow Dear");
-    // console.log("Hellow Dear");
 
-  });
+  // localStorage.setItem("notes-list", "This is my data");
+
+  // const note = { id: "id", title: "title", body: "body" };
+  // localStorage.setItem("note", JSON.stringify(notes - list));
+
+ if(noteId && titleInput && bodyInput){
+    const showNotes = notes.find((note)=> note.id == noteId);
+    if(showNotes){
+      titleInput.value = showNotes.title;
+      bodyInput.value= showNotes.body;
+    }
+  }
 });
+ 
