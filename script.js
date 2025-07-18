@@ -8,6 +8,12 @@ const updatebtn = document.getElementById("update-it");
 
 let notes = [];
 
+
+
+function convertTime() {
+  // code here
+}
+
 addNote?.addEventListener("click", function (e) {
   e.preventDefault();
 
@@ -21,6 +27,7 @@ addNote?.addEventListener("click", function (e) {
   const body = bodyInput.value.trim();
   const id = Math.round(Math.random() * 1000);
 
+  createdAt: Date.now();
   const note = {
     id: id,
     title: title,
@@ -34,7 +41,7 @@ addNote?.addEventListener("click", function (e) {
 });
 
 const handleNoteClick = (note) => {
-  // console.log(note, "note---");
+  //
   // return;
   window.location.href = `Create.html?id=${note.id}`;
 };
@@ -70,17 +77,13 @@ window.addEventListener("DOMContentLoaded", () => {
       <p>${note.id}</p>
         <h3>${note.title}</h3>
         <p>${note.body}</p>
+        <p class="note-date">${note.currentDate || ""}</p>
       `;
       an.appendChild(noteDiv);
       noteDiv.addEventListener("click", () => handleNoteClick(note));
       container.appendChild(an);
     });
   }
-
-  // localStorage.setItem("notes-list", "This is my data");
-
-  // const note = { id: "id", title: "title", body: "body" };
-  // localStorage.setItem("note", JSON.stringify(notes - list));
 
   if (noteId && titleInput && bodyInput) {
     const showNotes = notes.find((note) => note.id == noteId);
@@ -103,13 +106,11 @@ window.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const params = new URLSearchParams(window.location.search);
     const noteId = params.get("id");
-    const updatedTitle = titleInput.value.trim();
-    const updatedBody = bodyInput.value.trim();
 
     const updatedNotes = notes.map((note) => {
       if (note.id == noteId) {
-        note.title = updatedTitle;
-        note.body = updatedBody;
+        note.title = titleInput.value.trim();
+        note.body = bodyInput.value.trim();
         return note;
       }
       return note;
@@ -117,7 +118,5 @@ window.addEventListener("DOMContentLoaded", () => {
 
     localStorage.setItem("notes", JSON.stringify(updatedNotes));
     window.location.href = "/";
-
-    // console.log(updatedNotes, "notes----");
   });
 });
