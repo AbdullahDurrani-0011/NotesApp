@@ -5,13 +5,46 @@ const addNote = document.getElementById("addBtn");
 const con = document.querySelector(".con");
 const removebtn = document.getElementById("remove-it");
 const updatebtn = document.getElementById("update-it");
+const notesFilter = document.getElementById("Note-Filter");
+
+notesFilter.addEventListener("Note-Filter", e => {
+  const value =e.target.value
+  notes.forEach(notes =>{
+    const isvisible = notes.id.includes(value) || notes.title.includes(value) || notes.body.includes(value)
+    notes.elemet.classList.toggle("hide",!isvisible)
+  })
+})
 
 let notes = [];
+function convertTime(creationTime) {
+  const cdate = new Date(creationTime);
+  const currentTime = new Date();
+  const diffMs = currentTime - cdate;
+  const diffSec = Math.floor(diffMs / 1000);
+  const diffMin = Math.floor(diffSec / 60);
+  const diffHour = Math.floor(diffSec / 3600);
+  const diffDay = Math.floor(diffSec / 86400);
+  let result;
 
+  if (diffSec < 5) {
+    result = "just now";
+  } else if (diffSec < 60) {
+    result = `${diffSec} seconds ago`;
+  } else if (diffMin === 1) {
+    result = "1 minute ago";
+  } else if (diffMin < 60) {
+    result = `${diffMin} minutes ago`;
+  } else if (diffHour === 1) {
+    result = "1 hour ago";
+  } else if (diffHour < 24) {
+    result = `${diffHour} hours ago`;
+  } else if (diffDay === 1) {
+    result = "1 day ago";
+  } else {
+    result = `${diffDay} days ago`;
+  }
 
-
-function convertTime() {
-  // code here
+  return result;
 }
 
 addNote?.addEventListener("click", function (e) {
@@ -27,12 +60,14 @@ addNote?.addEventListener("click", function (e) {
   const body = bodyInput.value.trim();
   const id = Math.round(Math.random() * 1000);
 
-  createdAt: Date.now();
+  creationTime: Date.now();
   const note = {
     id: id,
     title: title,
     body: body,
+    creationTime: Date.now(),
   };
+
   existingEntries.push(note);
   localStorage.setItem("notes", JSON.stringify(existingEntries));
   window.location.href = `index.html`;
@@ -49,6 +84,8 @@ const handleNoteClick = (note) => {
 window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const noteId = params.get("id");
+  //  document.getElementById("note").style.display = 'block';
+  // const noteId = params.hidden ("id");
 
   // if (noteId) {
   //   addBtn.classList.add("hidden");
@@ -74,11 +111,12 @@ window.addEventListener("DOMContentLoaded", () => {
       an.className = "anchor";
       noteDiv.className = "note";
       noteDiv.innerHTML = `
-      <p>${note.id}</p>
         <h3>${note.title}</h3>
-        <p>${note.body}</p>
-        <p class="note-date">${note.currentDate || ""}</p>
+        <p class="note-date">Last Edit : ${
+          convertTime(note.creationTime) || ""
+        }</p>
       `;
+
       an.appendChild(noteDiv);
       noteDiv.addEventListener("click", () => handleNoteClick(note));
       container.appendChild(an);
@@ -119,4 +157,11 @@ window.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("notes", JSON.stringify(updatedNotes));
     window.location.href = "/";
   });
+
+  // const myElement = document.getElementById('notes');
+  // if (myElement !== null) {
+  //     myElement.style.display = "none";
+  // } else {
+  //     console.error("Element with ID 'myElement' not found.");
+  // }
 });
