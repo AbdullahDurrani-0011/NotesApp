@@ -16,18 +16,22 @@
 
     <!-- Navbar -->
     <div class="Main-container">
-        <form class="create-Form">
+        <form class="create-Form" id="">
             <input type="text" id="Note-Filter" placeholder="Filter Notes" required>
 
-            <select class="options">
+
+            <select class="options" id="sort-notes">
                 <option value="">Sort by</option>
-                <option value="">Sort by last edited</option>
-                <option value="">Sort by alphabetically</option>
-                <option value="">Sort by recently created</option>
+                <option value="last-edited">Sort by last edited</option>
+                <option value="alphabetically">Sort by alphabetically</option>
+                <option value="recently-created">Sort by recently created</option>
             </select>
+
+
+
         </form>
     </div>
-    <div  id="notes-list" class="con"></div>
+    <div id="notes-list" class="con"></div>
 
     <!-- Create Note Button -->
     <a href="./Create.html"><button class="Create-btn">Create Note</button></a>
