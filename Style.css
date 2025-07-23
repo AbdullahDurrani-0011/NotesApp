@@ -3,32 +3,25 @@
     padding: 0;
     font-family: sans-serif;
 }
-
 .container {
     width: 100%;
     height: 100%;
     background-color: #46789D;
     padding-bottom: 20px;
     padding-top: 20px;
-
 }
-
 .NotesApp {
     margin-left: 28%;
     color: white;
     font-weight: bolder;
     font-size: 35px;
 }
-
 .AppNotes {
 
     margin-left: 28%;
     color: white;
     font-family: Arial;
-
-
 }
-
 /* Home Css Start */
 .Home-Header {
     /* height: 50%; */
@@ -36,48 +29,35 @@
     padding-top: 15px;
     padding-bottom: 15px
 }
-
 .home {
     margin-left: 28%;
     color: black;
     cursor: pointer;
     max-width: fit-content;
 }
-
 .home:hover {
     color: red;
 }
-
 /* Form Css Start */
 .form-container {
     margin-top: 30px;
     margin-left: 28%;
     background-color: white;
 }
-
 .Form {
     max-width: 600px;
     display: flex;
     font-size: 12px;
     flex-direction: column;
     gap: 25px;
-
-
-    /* border-radius: 6px solid #FFFF; */
 }
-
 .Form input {
     padding: 10px;
     height: 25px;
     border-radius: 8px;
     outline: none;
     border: 1px solid lightgray;
-
-
-
 }
-
-
 .Form textarea {
     padding: 10px;
     resize: none;
@@ -85,10 +65,7 @@
     border-radius: 8px;
     outline: none;
     border: 1px solid lightgray;
-
-
 }
-
 ::placeholder {
     color: lightgray;
     font-size: 15px;
@@ -110,10 +87,7 @@
     font-family: sans-serif;
     font-size: medium;
     cursor: pointer;
-
-
 }
-
 /* Create Pages Css Start */
 .Main-container {
     width: 100%;
@@ -122,14 +96,11 @@
     padding-top: 15px;
     padding-bottom: 15px
 }
-
 .create-Form {
     max-width: 600px;
     font-size: 12px;
     margin-left: 28%;
-
 }
-
 .Main-container input {
     padding: 10px;
     height: 25px;
@@ -138,7 +109,6 @@
     border: 1px solid lightgray;
     border: none;
 }
-
 /* select option css start */
 .options {
 
@@ -148,9 +118,8 @@
     padding: 10px;
     border-radius: 8px;
     outline: none;
-    border: none;
+   border: none;
 }
-
 .Span-Tag {
     /* width: 100%; */
     height: 50%;
@@ -158,89 +127,43 @@
     padding-top: 30px;
     font-size: 20px;
 }
-
 /* Text Area Css */
-/* #node-container{
-    width: 600px;
-    padding: 60px;
-    resize: none;
-    box-sizing: border-box;
-    border-radius: 8px;
-    outline: none;
-    margin-left: 28%;
-    border: 1px solid lightgray; 
-    cursor: pointer; 
-    margin-top: 40px;
-} */
-
-
-
-
-
 #notes-list {
     max-width: 500px;
     margin: 20px auto;
     padding: 10px;
 }
-
 .note {
     background-color: #f0f8ff;
     border: 1px solid #ccc;
 
     padding: 15px;
     margin-bottom: 15px;
-
 }
-
 .note h3 {
     margin-top: 0;
     font-size: 18px;
     color: #333;
 }
-
 .note p {
     margin-bottom: 0;
     color: #555;
 }
-
 .no-notes {
     text-align: center;
     font-size: 18px;
     color: #121212;
     margin-top: 10px;
 }
-
-
-
-
-
-
-
 .Update {
     float: right;
     margin-left: 500px;
     margin-top: -145px;
 }
-
-
 .anchor {
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Create Button Css */
-
 .Create-btn {
     width: 110px;
     padding-top: 15px;
@@ -256,56 +179,18 @@
     font-family: sans-serif;
     font-size: medium;
     cursor: pointer;
-    margin-top: 2%;
+   margin-top: 2%;
 }
-
-
-
-
-/* 
-.btn-group {
-    display: flex;
-    gap: 400px;
-    margin-top: 15px;
- 
-} */
-
-/* Update button */
-/* .update-btn {
-    background-color: #46789D;
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-} */
-
-/* Remove button */
-/* .remove-btn {
-    background-color: #46789D;
-    color: white;
-    padding: 10px 19px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-} */
-
-
 .hidden {
   display: none;
 }
 .show{
     display: block;
 }
-
-
-
 .btn-group {
     display: flex;
 justify-content: space-between;  
 }
-
-
 #update-it,
 #remove-it {
   width: 80px;
@@ -321,14 +206,11 @@ justify-content: space-between;
   font-size: medium;
   cursor: pointer;
 }
-
 /* Optional hover effect */
 #update-it:hover,
 #remove-it:hover {
   background-color: #365f7a;
 }
-
-
 .hidden {
   display: none;
 }
