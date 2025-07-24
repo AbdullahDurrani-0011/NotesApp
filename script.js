@@ -43,6 +43,7 @@ addNote?.addEventListener("click", function (e) {
     title,
     body,
     creationTime: Date.now(),
+    LastEdited: Date.now(),
   };
 
   existingEntries.push(note);
@@ -71,9 +72,9 @@ window.addEventListener("DOMContentLoaded", () => {
       titleInput.value = showNotes.title;
       bodyInput.value = showNotes.body;
 
-      // if (lastEditDiv) {
-      //   lastEditDiv.textContent = `Last Edit : ${convertTime(showNotes.creationTime)}`;
-      // }
+      if (lastEditDiv) {
+        lastEditDiv.textContent = `Last Edit : ${convertTime(showNotes.creationTime)}`;
+      }
     }
   } else {
     addNote?.classList.remove("hidden");
@@ -89,7 +90,8 @@ window.addEventListener("DOMContentLoaded", () => {
       if (note.id == noteId) {
         note.title = titleInput.value.trim();
         note.body = bodyInput.value.trim();
-        note.creationTime = Date.now();
+        note.LastEdited = Date.now();
+        
       }
       return note;
     });
@@ -125,7 +127,7 @@ window.addEventListener("DOMContentLoaded", () => {
       noteDiv.className = "note";
       noteDiv.innerHTML = `
         <h3>${note.title}</h3>
-        <p class="note-date">Last Edit : ${convertTime(note.creationTime)}</p>
+        <p class="note-date">Last Edit : ${convertTime(note.LastEdited)}</p>
       `;
       an.appendChild(noteDiv);
       noteDiv.addEventListener("click", () => handleNoteClick(note));
@@ -145,11 +147,12 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     if (sortValue === "last-edited") {
-      filteredNotes.sort((a, b) => b.creationTime - a.creationTime);
+      filteredNotes.sort((a, b) => b.LastEdited - a.LastEdited);
     } else if (sortValue === "alphabetically") {
       filteredNotes.sort((a, b) => a.title.localeCompare(b.title));
     } else if (sortValue === "recently-created") {
-      filteredNotes.sort((a, b) => b.id - a.id);
+      // filteredNotes.sort((a, b) => a.creationTime - b.LastEdited);
+      filteredNotes.sort((a, b) => b.creationTime - a.creationTime);
     }
 
     renderNotes(filteredNotes);
