@@ -100,6 +100,8 @@ window.addEventListener("DOMContentLoaded", () => {
     window.location.href = "index.html";
   });
 
+ 
+
   removebtn?.addEventListener("click", function (e) {
     e.preventDefault();
     const noteId = new URLSearchParams(window.location.search).get("id");
